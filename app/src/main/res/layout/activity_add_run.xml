@@ -1,90 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="48dp"
-    tools:context=".AddRunActivity">
-
-    <LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="48dp"
+        tools:context=".AddRunActivity">
 
-        <ImageView
+
+    <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="24dp"
-            app:srcCompat="@drawable/ic_distance_icon" />
+            app:srcCompat="@drawable/ic_distance_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/distance_image"/>
 
-        <LinearLayout
+
+    <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@string/add_run_distance_hint"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/distance_image"
+            app:layout_constraintTop_toTopOf="@+id/distance_image"
+            android:id="@+id/distance_hint_tv"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_run_distance_hint"
-                android:textColor="@color/black" />
+    <EditText
 
-            <EditText
-                android:id="@+id/addRunDistanceInput"
-                style="@style/blue_label.large"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="@string/add_run_distance_hint"
-                android:inputType="number" />
-        </LinearLayout>
-    </LinearLayout>
+            android:id="@+id/addRunDistanceInput"
+            style="@style/blue_label.large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_run_distance_hint"
+            android:inputType="number"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:orientation="horizontal">
+            app:layout_constraintTop_toBottomOf="@+id/distance_hint_tv"
+            app:layout_constraintStart_toStartOf="@+id/distance_hint_tv"
+    />
 
-        <ImageView
+
+    <ImageView
+
+            android:id="@+id/add_time_image"
+            android:layout_marginTop="48dp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="24dp"
-            app:srcCompat="@drawable/ic_time_icon" />
+            app:srcCompat="@drawable/ic_time_icon"
+            app:layout_constraintTop_toBottomOf="@+id/distance_image"
+            app:layout_constraintStart_toStartOf="@+id/distance_image"/>
 
-        <LinearLayout
+
+    <TextView
+
+            android:id="@+id/runtime_hint_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@string/add_run_time_label"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@+id/add_time_image"
+            app:layout_constraintStart_toStartOf="@+id/addRunDistanceInput"
+           />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_run_time_label"
-                android:textColor="@color/black" />
+    <TextView
 
-            <TextView
-                android:id="@+id/addRunTimeLabel"
-                style="@style/blue_label.large"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="@string/add_run_time_hint" />
+            android:id="@+id/addRunTimeLabel"
+            style="@style/blue_label.large"
+            android:textColor="@color/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_run_time_hint"
+            app:layout_constraintStart_toStartOf="@+id/runtime_hint_tv"
+            app:layout_constraintTop_toBottomOf="@+id/runtime_hint_tv"
+    />
 
-        </LinearLayout>
-
-    </LinearLayout>
 
     <Button
-        android:id="@+id/addRunSaveButton"
-        style="@style/button.dark.blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:text="@string/add_run_save" />
-</LinearLayout>
+            android:id="@+id/addRunSaveButton"
+            style="@style/button.dark.blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/add_run_save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRunTimeLabel"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
